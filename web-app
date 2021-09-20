@@ -1,0 +1,21 @@
+import web
+
+urls = (
+  '/hola', 'Saludo'
+)
+
+app = web.application(urls, globals())
+
+class Saludo:
+  def GET(self):
+    data = web.input()
+    return """
+    <html>
+    <head></head>
+    <body background='#AAAAFF'>
+    <h1>Hola, %s %s %s</h1>
+    </body>
+    </html>""" % (data.nombre, data.apellido1, data.apellido2)
+
+if __name__ == "__main__":
+  app.run()
